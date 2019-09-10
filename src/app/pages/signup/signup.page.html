@@ -1,0 +1,47 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col sizeXs="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Cadastre-se
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="form">
+              <ion-list lines="none">
+                <ion-item>
+                  <ion-label position="floating">Nome</ion-label>
+                  <ion-input type="text" formControlName="name"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">E-mail</ion-label>
+                  <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Usuário</ion-label>
+                  <ion-input type="text" formControlName="username"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Senha</ion-label>
+                  <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-card-content>
+        </ion-card>
+        <p>
+          <ion-button color="primary" shape="round" fill="outline" size="large" expand="full" [disabled]="form.invalid"
+            (click)="submit()">
+            CADASTRAR
+          </ion-button>
+          <br>
+          <ion-button routerLink="/login" color="medium" fill="clear" size="small" expand="full">
+            Cancelar
+          </ion-button>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
