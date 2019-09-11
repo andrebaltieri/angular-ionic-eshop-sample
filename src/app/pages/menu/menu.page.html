@@ -1,7 +1,23 @@
 <ion-menu>
-  <ion-content padding>
-    Menu Lateral
+  <ion-content>
+    <br>
+    <app-user-card></app-user-card>
+
+    <ion-list lines="none">
+      <ion-menu-toggle>
+        <ion-item routerLink="/" detail>
+          <ion-icon slot="start" name="home"></ion-icon> Home
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
   </ion-content>
+  <ion-footer>
+    <ion-list>
+      <ion-button ion-item fill="clear" color="light" expand="full" (click)="logout()">
+        <ion-icon slot="icon-only" name="exit"></ion-icon> Sair
+      </ion-button>
+    </ion-list>
+  </ion-footer>
 </ion-menu>
 
 <ion-header>
@@ -19,4 +35,6 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-router-outlet main></ion-router-outlet>
+<ion-content>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-content>

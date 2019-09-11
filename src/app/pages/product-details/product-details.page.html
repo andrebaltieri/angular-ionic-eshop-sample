@@ -1,0 +1,23 @@
+<ion-content *ngIf="product" class="ion-padding">
+  <h2>
+    {{ product.title }} <br>
+    <small>{{ product.brand }}</small>
+  </h2>
+  <h1>{{ product.price | currency: 'BRL' }}</h1>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeXs="12" sizeMd="3" *ngFor="let i of product.images">
+        <ion-card>
+          <img src="{{ i }}">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addToCart()" color="danger">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

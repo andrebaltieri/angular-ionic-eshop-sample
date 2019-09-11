@@ -1,15 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be
-      your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="4" sizeXs="12" *ngFor="let product of products">
+        <ion-card>
+          <img src="{{ product.image }}" alt="{{ product.title }}">
+          <ion-card-header>
+            <ion-card-subtitle>{{ product.title }}</ion-card-subtitle>
+            <ion-card-title>{{ product.price | currency: 'BRL' }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-item routerLink="/products/{{ product.tag }}" detail>
+            <ion-icon name="more" slot="start"></ion-icon>
+            <ion-label>Detalhes</ion-label>
+          </ion-item>
+          <ion-item (click)="addToCart(product)" class="clickable" detail *ngIf="!isInCart(product)">
+            <ion-icon name="cart" slot="start"></ion-icon>
+            <ion-label>Adicionar</ion-label>
+          </ion-item>
+          <ion-item (click)="removeFromCart(product)" color="danger" class="clickable" detail *ngIf="isInCart(product)">
+            <ion-icon name="cart" slot="start"></ion-icon>
+            <ion-label>Remover</ion-label>
+          </ion-item>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

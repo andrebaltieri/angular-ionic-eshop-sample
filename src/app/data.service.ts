@@ -18,4 +18,12 @@ export class DataService {
   auth(data: any) {
     return this.http.post(`${environment.apiUrl}v1/account/login`, data);
   }
+
+  getProducts() {
+    return this.http.get(`${environment.apiUrl}v1/products`);
+  }
+
+  getProduct(tag: string) {
+    return this.http.get(`${environment.apiUrl}v1/products/${tag}`);
+  }
 }
